@@ -1,5 +1,6 @@
 section {
     padding-top: 128px;
+    position: relative; /* Tambahkan properti position untuk membuat pseudo-element sesuai */
 }
 
 section::before {
@@ -19,15 +20,15 @@ section::before {
     border-radius: 24px;
 }
 
-.btn.button:hover, .btn.button.active {
-    border: 3px solid black;
-    border-color: black;
+.btn.button:hover, 
+.btn.button.active {
+    border-color: black; /* Menghapus duplikat dari properti border */
     color: white;
 }
 
 .navbar {
     background-color: white;
-    box-shadow: 0 0 0 4px rgb(0, 0, 0, 0.25);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25); /* Mengubah opacity menjadi nilai antara 0 dan 1 */
 }
 
 .home h1 {
@@ -42,22 +43,21 @@ section::before {
     width: 100%;
 }
 
-.home .arrow img{
+.home .arrow img {
     width: 60px;
 }
 
 #arrow {
-    animation: 3s upDown infinite;
+    animation: upDown 3s infinite; /* Mengubah nama animasi sesuai dengan yang didefinisikan */
 }
 
-/* Tambahkan gaya teks untuk teks "About" */
 #about h2 {
-    font-size: 72px; /* Ukuran teks besar */
-    font-weight: bold; /* Tebal (bold) */
+    font-size: 72px;
+    font-weight: bold;
 }
 
 .about-exp-item {
-    margin-top: 32px ;
+    margin-top: 32px;
 }
 
 .about-exp-item-header {
@@ -86,7 +86,7 @@ section::before {
 }
 
 .work-img-item:hover::after {
-    content: '';
+    content: attr(data-content); /* Menggunakan data-content untuk menampilkan teks dinamis */
     width: 100%;
     height: 100%;
     position: absolute;
@@ -101,30 +101,6 @@ section::before {
     font-size: 24px;
 }
 
-#work-1 {
-    grid-area: work-1;
-}
-
-#work-1:hover::after {
-    content: 'Web Project';
-}
-
-#work-2 {
-    grid-area: work-2;
-}
-
-#work-2:hover::after {
-    content: 'Software Project';
-}
-
-#work-3 {
-    grid-area: work-3;
-}
-
-#work-3:hover::after {
-    content: 'UI Project';
-}
-
 .contact {
     padding-bottom: 128px;
 }
@@ -132,7 +108,6 @@ section::before {
 .contact-form {
     border: 1px solid black;
     padding: 64px 32px;
-
 }
 
 .form-label {
@@ -140,26 +115,15 @@ section::before {
 }
 
 @media only screen and (max-width: 768px) {
-    .home ig {
+    .home img { /* Mengubah ig menjadi img */
         width: 50%;
     }
 }
 
-@media only screen adn (max-width: 576px) {
+@media only screen and (max-width: 576px) {
     section::before {
         left: -10px;
         font-size: 64px;
     }
 }
 
-@keyframes upDown {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(10px);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
